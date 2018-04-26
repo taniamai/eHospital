@@ -33,7 +33,7 @@ import matplotlib.patches as patches
 os.environ['CUDA_VISIBLE_DEVICES'] = "0"
 
 ########################
-test_txt_path = 'C:/Users/Nga/PycharmProjects/eHospital/CheXNet-with-localization/test_list.txt'
+test_txt_path = 'CheXNet-with-localization/test_list.txt'
 img_folder_path = 'D:/ChestXray-NIHCC/images/'
 
 with open(test_txt_path, "r") as f:
@@ -89,7 +89,7 @@ print("model loaded")
 '''
 ############################################################################################################
 N_CLASSES = 14
-CKPT_PATH = 'C:/Users/Nga/PycharmProjects/eHospital/CheXNet/model.pth.tar'
+CKPT_PATH = 'CheXNet/model.pth.tar'
 # download the imagenet category list
 diseases_list = ['Atelectasis', 'Cardiomegaly', 'Effusion', 'Infiltration', 'Mass', 'Nodule', 'Pneumonia',
                 'Pneumothorax', 'Consolidation', 'Edema', 'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia']
@@ -407,7 +407,7 @@ for img_id, k, npy in zip(image_id, output_class, heatmap_output):
         cv2.putText(result, '%s %.2f' % (class_index[k], iou_), (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 1,
                     (255, 255, 255), 2, cv2.LINE_AA)
 
-        cv2.imwrite('C:/Users/Nga/PycharmProjects/eHospital/CheXNet-with-localization/output/gradCAM%s_%s.jpg' % (
+        cv2.imwrite('CheXNet-with-localization/output/gradCAM%s_%s.jpg' % (
             img_fname, class_index[k]), result)
 
     with open("bounding_box.txt", "w") as f:
